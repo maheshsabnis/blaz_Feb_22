@@ -1,0 +1,67 @@
+#TypeScript (TS) Programming
+1. Language based on ES 6 (a new standard for Front-End app development for JavaScript)
+2. TypeScript Application Configuration
+    - Node.js
+        - Runtime for JS apps on server-side
+    - The 'npm' tool
+        - Node Package Manager used for JS and TS app configuration
+    - package.json
+        - The Project configuration file the contains following information     
+            - All Dependency Packages for the application
+                - devDependencies
+                    - List of packages used during Development, Testing
+                        - npm install --save-dev [PACKAGE-NAME]
+                - dependencies
+                    - List of packages used during the application execution aka runtime     
+                        - npm install --save [PACKAGE-NAME]
+            - Commands to Test, Build, Run application in 'script' block     
+        - Command to Create package.json
+            - npm init -y
+                - This will generate the package.json with defaults
+            - npm init
+                - This will provide command line wizard to generate package.json                      
+        - Some packages MUST be install globally, these will be used to Build, Run, Compile (aka transpile) TypeScript apps       
+            - npm install -g [PACKAGE_NAME] 
+        - e.g.
+            - Installing TypeScript in global scope
+                - npm install -g typescript
+            - The TypeScript global scope will provide the 'tsc' tool
+                - This is 'TypeScript Compiler'
+                - This will transpile .ts files into .js files        
+
+#TypeScript Features
+    - Block Scope variable declaration using 'let' keyword
+    - DataTypes
+        - number, string, object, date, Array<T>, boolean, Type
+        - the 'any', this is default for a variable when not datatype or default value assigned to it
+        - Union Type, defining a variable for more than one datatype at a time
+    - String Interpolation aka Template String, a new syntax for String Concatenation  
+        - USed for string concatenation where a 'SINGLE-MUTABLE-STRING' object is created
+        - Syntax
+            - let str1 = 'Mahesh';
+            - let str2 = 'Sabnis';
+            - let concat = `Full Name  = ${str1} ${str2}`;
+                - {str1} and {str2} are 'Parsed String' expressions, these will be replaced while constructing a string  
+    - Iterations
+        - for..of loop
+            - USed to iterate over the collection            
+    - Arrow Operators, a replacement for Callback Functions
+        - Use the arrow operator as input parameter to a function if it accepts the input parameter as 'callback function' 
+    - Rest Parameters, variable number of parameters to a method
+    - OOPs
+        - Class
+            - Access Specifiers
+                - Public, Private, Protected (TS 3.0+)
+            - Access Modifiers
+                - Static
+            - Inheritance
+                - Using 'extends' keywords      
+        - Interface
+            - The 'implements' keyword
+        - Generics
+    - Modules
+        - 'export' Type (Array, Method, Class) form one .ts file and 'import' it in other file 
+- Transpiling .ts into .js
+    - tsc [SOURCE-PATH]/[FileName].ts -out [TARGET_PATH]/[FileName].js
+- Execute the .js file in-side Node.js server
+    - node   [TARGET_PATH]/[FileName].js          
