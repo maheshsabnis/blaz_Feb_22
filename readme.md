@@ -88,6 +88,8 @@
     - The 'class' is a keyword
     - The Default Access-Specifiers for Class members is 'public'
     - The 'get', 'set' property system
+        - They are public wrappers over private members of the class
+        - They are used in case when the private member needs self-validating logic
     - The 'private' keyword for private members
     - The 'constructor()' is a standard method for constructor creation in class
         - No Overloading is allowed        
@@ -97,4 +99,5 @@
         - The Up-Casting and Downcasting of class objects is not allowed   
     - The 'static' keyword for static members
     - The 'abstract' keyword for abstract class
-        - No Virtual Methods as of today            
+        - No Virtual Methods as of today
+    - All members of class are accessed inside the class using 'this.' prefix                
