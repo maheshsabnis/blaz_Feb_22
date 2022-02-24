@@ -65,3 +65,36 @@
     - tsc [SOURCE-PATH]/[FileName].ts -out [TARGET_PATH]/[FileName].js
 - Execute the .js file in-side Node.js server
     - node   [TARGET_PATH]/[FileName].js          
+
+# ES 6 Modularity
+- Class
+    - Class Methods with Access Specifiers
+    - Constructor
+    - Properties
+    - Derivation
+    - Interface    
+- W3C + Mozilla
+    - High-Level-JavaScript aka Modern JavaScript aka ES 2015 (ES 6)    
+- Microsoft 
+    - TypeScript
+        - Class with Access Specifiers
+        - Inheritance
+        - Interfaces
+        - Abstract Representations
+        - Static
+    - Angular uses TypeScript as its Backbone   
+
+# OOPs with TypeScript
+    - The 'class' is a keyword
+    - The Default Access-Specifiers for Class members is 'public'
+    - The 'get', 'set' property system
+    - The 'private' keyword for private members
+    - The 'constructor()' is a standard method for constructor creation in class
+        - No Overloading is allowed        
+        - public and private parameters to constructor is possible and they will be used as class public, private members
+    - The Inheritance is possible using 'extends' keyword
+        - The base class constructor is accessed using 'super()' method from derived class constructor
+        - The Up-Casting and Downcasting of class objects is not allowed   
+    - The 'static' keyword for static members
+    - The 'abstract' keyword for abstract class
+        - No Virtual Methods as of today            
