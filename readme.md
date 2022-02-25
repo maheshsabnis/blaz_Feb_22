@@ -254,4 +254,90 @@
             - Combination of Property-Binding and Event-Binding
                 - [(ngModel)]="PUBLIC-DATA-MEMBER-FROM-COMPONENT-CLASS"
                 - When Data member is changed the UI will change and when UI change the Data member will change
-                - The 'ngModel' si defined in the FormsModule from @angular/forms         
+                - The 'ngModel' si defined in the FormsModule from @angular/forms     
+- tsconfig.json is generated using the following command
+    -  tsc --init                    
+    - "experimentalDecorators": true,
+        -  Transpile Angular Decorators e.g. @NgModule, @Component, etc.
+    - "moduleResolution": "node",
+        - Each imported .ts file will be loaded as Node.js module and will be transpiled
+            - e.g. if a.ts is imported in b.ts and the b.ts is transpiled
+                - tsc b.ts
+                    - this will also transpile a.ts
+- angular.json
+    - refer all expternal css files
+        - "styles": [
+              "src/styles.css"
+            ],
+    - refer all external js files        
+        - "scripts": []
+    - e.g. using bootstrap in angular app
+        - install bootsrap
+             - npm install --save bootstrap
+        - configure it using angular.json so that it will be available for all UI in app
+             -  "styles": [
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ], 
+
+- To Execute the component during first load of Angular Application browser follow steps as given below
+    - Add the Component in declarations array of @NgModule
+    - MAke sure that the component is passed to 'bootstrap' array of @NgModule
+    - Use the 'selector' of the component inindex.html
+- To build and run the application have a look to following configurations of package.json
+ "scripts": {
+    "ng": "ng", -- the 'ng' CLI, that will be used globally after installing @angular/cli
+    "start": "ng serve", -- Build and host the Angular app on Node.js dummy server on port 4200 
+    "build": "ng build", -- build the app, this will transpile all .ts files and load .js and .css files 
+    "watch": "ng build --watch --configuration development",  -- development build and not production
+    "test": "ng test" -- for running test scripts
+  },      
+
+- Command to run on command prompt
+    - npm run build
+        -  ng build
+    - npm run start
+        - ng serve
+    - npm run test
+        - ng test
+
+- Dev Build and execution
+
+ Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   1.97 MB | ---> Transpilation of standard Angular modules
+styles.css, styles.js | styles        | 333.86 kB | ---> Transpilation of CSS into css file and if custom CSS plugins will be transpiled into js file 
+polyfills.js          | polyfills     | 299.96 kB | ---> The file that manages the JS execution in Browser
+main.js               | main          |   7.54 kB | ---> The Developer code transpilation
+runtime.js            | runtime       |   6.52 kB | ---> Web Pack Transpilation to load and execute Angular app in browser
+
+                      | Initial Total |   2.60 MB   
+- The production Build
+-  ng serve --configuration production
+
+Initial Chunk Files   | Names         |  Raw Size | Estimated Transfer Size
+main.js               | main          | 285.21 kB |                74.09 kB --> the vendor.js and merged with main.js and it is compressed that why size is shown more as compare to dev build 
+styles.css, styles.js | styles        | 274.40 kB |                45.33 kB
+polyfills.js          | polyfills     | 154.26 kB |                39.88 kB
+runtime.js            | runtime       |   1.25 kB |               676 bytes
+
+                      | Initial Total | 715.11 kB |               159.95 kB
+
+
+# Programming with Angular
+    - DataBinding
+        - Component Parent Child Communication
+    - Directives
+        - Standard Directives
+        - Reusable Component
+        - Custom Directives
+    - Forms and Validations
+        - Reactive Forms
+    - Services
+        - Utility
+        - Dependency Injections
+        - Communication across Components using Pub/Sub
+        - Http Calls
+    - Routing
+        -  Single Page app
+    - Testing
+        - testing Component with UI Events
