@@ -169,6 +169,7 @@
         - Method
         - Data Member
         - Property
+
     - To make class as Angular Module, Component, Directive, Pipe, and Service, we have to apply corresponding decorator on it.    
 
 # Angular Standard Packages
@@ -254,7 +255,7 @@
             - Combination of Property-Binding and Event-Binding
                 - [(ngModel)]="PUBLIC-DATA-MEMBER-FROM-COMPONENT-CLASS"
                 - When Data member is changed the UI will change and when UI change the Data member will change
-                - The 'ngModel' si defined in the FormsModule from @angular/forms     
+                - The 'ngModel' is defined in the FormsModule from @angular/forms     
 - tsconfig.json is generated using the following command
     -  tsc --init                    
     - "experimentalDecorators": true,
@@ -325,9 +326,29 @@ runtime.js            | runtime       |   1.25 kB |               676 bytes
 
 # Programming with Angular
     - DataBinding
+        - Two-Way Binding
+            - implemented using ngModel
+                - This is an 'Attribute Directive', this will provide following behavior to the HTML Editable Elements (Input:text, radio, checkbox, select, etc.)
+                    - Monitor the 'value' change on the element, this will takes place using any event (KeyUp, change)
+                    - ngModel will raise the ngModelChanged event on UI and will read the updated value bound to the element
+                    - The ngModelChanged event will pass/send the Updated value to the component for the property bound to ngModel
+                    - Component will update itself by receiving updated value and will also update the same property and other properties depending on this property 
+                    - The update value will be send to UI so that UI elements will use this updated value
+                - To execute the ngModel, import the 'FormsModule' in 'imports' array of  @NgModule    
         - Component Parent Child Communication
     - Directives
         - Standard Directives
+            - They are provided by Angular Object Model
+            - 3 Types of Directives
+                - Component Directive, each Component is Directive. This makes component as a Re-Usable and Functional UI
+                - Structural Directive
+                    - Modify HTML UI based on Condition
+                        - *ngFor, execute a for..in loop on the collection to generate UI
+                        - *ngIf, execute an if condition to add/remove UI element based on the condition
+                - Attribute Directive
+                    - Modify the behavior of HTML Element
+                        - ngModel
+                        - formControlName, formGroup, etc.
         - Reusable Component
         - Custom Directives
     - Forms and Validations
