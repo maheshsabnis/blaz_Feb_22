@@ -9,16 +9,19 @@ import { AppComponent } from './app.component';
 
 // import the develope defined components, directives, services
 import {SimpleComponent} from './components/app.simple.component';
+import {ProductComponent} from './components/productcomponent/app.product.component';
+import { SelectComponent } from './directives/componentdirective/selectcomponent/app.select.component.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleComponent
+    SimpleComponent, ProductComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule, FormsModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [SimpleComponent]
+  bootstrap: [ProductComponent]
 })
 export class AppModule { }

@@ -335,7 +335,38 @@ runtime.js            | runtime       |   1.25 kB |               676 bytes
                     - Component will update itself by receiving updated value and will also update the same property and other properties depending on this property 
                     - The update value will be send to UI so that UI elements will use this updated value
                 - To execute the ngModel, import the 'FormsModule' in 'imports' array of  @NgModule    
+    - Component's features
+        - This object contains methods and properties for Binding
+        - This has its OWN LIFECYCLE
+            - OnChanges
+            - OnInit
+                - Will be invoked immediately after constructor
+                - Used to contain the code which we cannot write in the Constructor
+                    - If heavy Code as follows written in constructor, the delayed in code execution will delay component's instance creation and hence will delay the loading time 
+                        - Complex Data Iteration
+                        - External Calls
+            - ViewChanges
+                - View COntent Init
+                - View Content Init Complete
+            - OnDestroy            
+        - The component's UI recommendations
+            - If a specific UI is repeating multiple times across 2-or-more components, the consider creating a Custom Component Directive for Re-Usability
+            - Make sure that the HTML UI should avoid the hard-coding of Property Names incase the UI is generated dynamically using *ngFor based on collections   
+            - Try Creating a Service or Utility classes, if the same logic is needed by multiple Components 
+            - If Similar UI Behavior is required across multiple components e.g. Change the UI of table row on MOuse Move, or change the background-color of UI element based on validation, then create a custom Attribute Directive     
         - Component Parent Child Communication
+            - When the Re-Usable Custom Component Directive is created, then it definitely it will be used as 'Chile-Component' of the 'Parent-Component'
+            - This will tend to use  Parent Child Communication
+            - The Parent will pass data to Child
+                - The Child MUST have a public property (get/set) decorated with the '@Input()' decorator which is provided in @angular/core
+                    - Use the @Input() decorator on 'set' property
+                - The @Input() decorated property will be used for 'Property-Binding' when the Child is used in parent
+            - The Child will emit data to Parent    
+                - The Child Component MUST have a public member declared of the type 'EventEmitter<T>', this class is declared in @angular/core. The 'T' means the type of data to be emitted to the parent from the child
+                - The public member of the type 'EventEmitter<T>' MUST be decorated with '@Output()' decorator. The '@Output()' decorator is provided in @angular/core
+                - The  public member of the type 'EventEmitter<T>' will be used for 'Event-Binding' when child is used in parent
+                    - The EventEmitter has the 'notify()' method to emit the data from child to parent
+                    - The parent MUST subscribe to this event using a method. This method MUST accept the '$event' object, the JS object for Custom Eventing. The '$event' represents the data emitted from child to parent     
     - Directives
         - Standard Directives
             - They are provided by Angular Object Model
