@@ -35,3 +35,14 @@ In 1992, the franchise expanded to a television series with The Young Indiana Jo
     - The CanDelete property as Input property, if this property is 'true' then  based on this value each row will generate a button with 'Delete' text on it. When this button is clicked, the row MUST be deleted from Parent Component
     - The CanSort property, if this is true, then the table MUST be sorted in ascending order based on 'SortKey' passed by the Parent
         - e.g. if DataSource is Employee Collection , then the SortKey can be EmpName and CanSort is true, the the Table should show data in Sorted order by EmpName      
+
+# Date: 02-March-2022
+
+1. Create a Custom Directive of name CheckUnique with selector as '[checkUnique]'
+    - THis directive will be activated based on 'change' event on input:text element to make sure that the value entered in the input:text element is unique. If the value is not unique then the borderColor of the input:text will be read 
+        - input type="text" [checkUnique]="EmpNo", the EmpNo MUSt be unique 
+2. Complete the ProductFormComponent for all Properties of Product Model class   
+    - ProductId MUST be Required and Must be String
+        - Write a Custom Validator to make sure that the ProductId is not repeated 
+            - Consider using the Logic class in Custom Validator
+    - ProductName MUST be Required and Must be String and MUST start from UpperCase Character

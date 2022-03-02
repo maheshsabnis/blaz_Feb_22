@@ -384,6 +384,74 @@ runtime.js            | runtime       |   1.25 kB |               676 bytes
         - Custom Directives
     - Forms and Validations
         - Reactive Forms
+            - It is an Angular form which is Bound with Model Object
+            - When the Form is Changed, the Model object will be updated
+            - If the Model Has Validations on its properties, then for Invalid values of these properties, the Forms UI will be affected
+        - ReactiveFormsModule from @angular/forms
+            - The 'AbstractControl' class
+                - Represents an HTML Element on UI that will used for Data Read/Write 
+            - The form tag will mapped with ngForm of Angular 
+            - FormGroup class, represents a current active form, , derived from AbstractControl
+                - [formGroup] Attribute directive
+                    - The value of [formGroup] is an instance of FormGroup class
+                    - This is applied in form tag
+                - The 'value' property, used to read value of the form when the form is posted
+                - The 'setValue()' method to set/pass object to the form    
+                - The FormGroup instance is created using the following constructor
+ 
+ ``` javascript
+ constructor(controls: {
+        [key: string]: AbstractControl;
+    }, validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null);
+ ```           
+    - controls: The FormControls Collection, which will be mapped with Model Class Public Properties
+        - [key:string]:AbstractControl
+            - key, is the name that will be used to map with Model class property, this 'key' will be passed to the 'formControlName' attribute of editable UI element in the [formGroup]
+                - Recommendations: set the 'key' as same as the Property Name mapped with it 
+        - validatorOrOpts
+            - The Validation Rules array    
+ 
+
+
+            - FormControl class, derived from AbstractControl
+                - Represent an Editable element inside the [formGroup]  
+                - This is used to map the public property of the model class with the editable element
+                - This mapping is handled using 'formControlName' directive    
+                - This replaces the [(ngModel)]        
+                - The 'value' property, used to read value of the editable element under the formGroup
+                - The 'setValue()' method to set/pass value to the editable element
+            - Validators class
+                - Contains standard validation methods
+                - Note: The method that accepts AbstractControl as input parameter need to to passed with any value explicitly 
+                    - required(AbstractControl)
+                        - The value is element is mandatory
+                        - Since the AbstractControl is a parameter, the UI element which is linked with the Model property will be directly passed the AbstractControl  
+                    - requiredTrue(AbstractControl)
+                        - Value MUSt be true
+                        - USed for CheckBox, Radio, etc.
+                    - email(AbstractControl)
+                    - pattern(RegEx|string)
+                        - Validate regular expression  
+                    - minLength(int val)
+                    - maxLength(int val)
+                    - null()
+                    - compose([ARRAY of VALIDATORS])    
+                        - We can pass multiple validations to a property 
+            - DOM UI evaluation for validations on each element will be as follows
+                    - [FORM-GROUP-INSTANCE].controls
+                        - Return FormControlCollection inside the form tag that is mapped with FORM-GROUP-INSTANCE
+                    - [FORM-GROUP-INSTANCE].controls['FORM-CONTROL-NAME'] 
+                        - Return an instance of formControl Name which is defined while creating FORM-GROUP-INSTANCE
+                    - [FORM-GROUP-INSTANCE].controls['FORM-CONTROL-NAME'].errors['VALIDATION-ERROR-OCCURRED']
+                        - VALIDATION-ERROR-OCCURRED, required, pattern, maxlength, minlength, etc.
+                            - This can be custom error also
+                    - [FORM-GROUP-INSTANCE].controls['FORM-CONTROL-NAME'].dirty
+                        - If the UI element is changed
+                        - This will invoke 'formControlNameChanged' event on UI for mapping value with MODEL-PROPERTY        
+                    - [FORM-GROUP-INSTANCE].controls['FORM-CONTROL-NAME'].valid
+                        - The value is valid
+                    -  [FORM-GROUP-INSTANCE].controls['FORM-CONTROL-NAME'].invalid
+                        - The value is invalid           
     - Services
         - Utility
         - Dependency Injections

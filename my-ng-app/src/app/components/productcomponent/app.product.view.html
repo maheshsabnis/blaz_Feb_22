@@ -4,7 +4,7 @@
     <tbody>
       <tr>
         <td>
-          <div class="form-group">
+          <div class="form-group" [setColor]="'green'">
             <label>Product Row Id</label>
             <input
               type="text"
@@ -86,7 +86,7 @@
           <div class="form-group">
             <label>Base Price</label>
             <input
-              type="text"
+              type="text" required pattern="" minlength="" maxlength=""
               class="form-control"
               [(ngModel)]="product.BasePrice"
             />
@@ -117,6 +117,21 @@
   </table>
   <br />
   <div>
+    <table class="table table-bordered table-striped">
+       <tbody>
+         <tr>
+           <td>
+             <input type="radio" name="r" (click)="color='red'">Red
+           </td>
+           <td>
+            <input type="radio" name="r" (click)="color='green'">Green
+          </td>
+          <td>
+            <input type="radio" name="r" (click)="color='blue'">Blue
+          </td>
+         </tr>
+       </tbody>
+    </table>
     <!--The PIPE that will convert the array into JSON String-->
     <!-- {{products|json}} -->
     <!-- <table class="table table-bordered table-striped">
@@ -151,7 +166,8 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let prd of products" (click)="getselectedproduct(prd)">
+          <tr *ngFor="let prd of products" (click)="getselectedproduct(prd)"
+           [setColor]="color">
              <td *ngFor="let col of columnHeaders">{{prd[col]}}</td>
           </tr>
       </tbody>

@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit, OnChanges {
   products:Array<Product>
   private logic:ProductLogic;
   columnHeaders:Array<string>;
+  color:string;
 
   // Copy the Values from the constants into the local public data members of the component
   categories = Categories;
@@ -23,6 +24,7 @@ export class ProductComponent implements OnInit, OnChanges {
     // instantiate the logic object here
     this.logic = new ProductLogic();
     this.columnHeaders = new Array<string>();
+    this.color ="";
     console.log('Invoked Constructor');
   }
 
