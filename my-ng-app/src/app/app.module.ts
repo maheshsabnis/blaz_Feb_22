@@ -14,17 +14,25 @@ import {ProductComponent} from './components/productcomponent/app.product.compon
 import { SelectComponent } from './directives/componentdirective/selectcomponent/app.select.component.directive';
 import {ColorDirective} from './directives/attributedirective/ap.color.directive';
 import { ProductFormCompnent } from './components/productformcomponent/app.productform.component';
+import { UtilityServiceComponent } from './components/utilityservicecomponent/app.utilityservice.component';
+
+// import Angular Service
+import {UtilityService} from './services/app.utility.service';
+import { DeptSenderComponent } from './components/componentcommunication/app.deptsender.component';
+import { EmpReceiverComponent } from './components/componentcommunication/app.empreceiver.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SimpleComponent, ProductComponent,
-    SelectComponent, ColorDirective, ProductFormCompnent
+    SelectComponent, ColorDirective, ProductFormCompnent,
+    UtilityServiceComponent, DeptSenderComponent,EmpReceiverComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [ProductFormCompnent]
+  // providers: [UtilityService], // root as singleton
+  bootstrap: [DeptSenderComponent,EmpReceiverComponent]
 })
 export class AppModule { }
