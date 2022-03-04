@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 // importing the FormsModule for Two-Way binding
 // ReactiveFormsModule: for the Reactive Forms aka Model-Driven-Forms like MVC
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+// import HttpClientModule for HTTP Calls
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,19 +22,20 @@ import { UtilityServiceComponent } from './components/utilityservicecomponent/ap
 import {UtilityService} from './services/app.utility.service';
 import { DeptSenderComponent } from './components/componentcommunication/app.deptsender.component';
 import { EmpReceiverComponent } from './components/componentcommunication/app.empreceiver.component';
+import { HttpServiceComponent } from './components/httpservicecomponent/app.httpservice.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SimpleComponent, ProductComponent,
-    SelectComponent, ColorDirective, ProductFormCompnent,
+    SelectComponent, ColorDirective, ProductFormCompnent, HttpServiceComponent,
     UtilityServiceComponent, DeptSenderComponent,EmpReceiverComponent
   ],
   imports: [
-    BrowserModule, FormsModule,ReactiveFormsModule,
+    BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,
     AppRoutingModule
   ],
   // providers: [UtilityService], // root as singleton
-  bootstrap: [DeptSenderComponent,EmpReceiverComponent]
+  bootstrap: [HttpServiceComponent]
 })
 export class AppModule { }

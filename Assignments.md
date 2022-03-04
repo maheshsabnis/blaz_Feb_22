@@ -60,3 +60,16 @@ In 1992, the franchise expanded to a television series with The Young Indiana Jo
     - Manufacturer
    - This component will also have the input:text element to accept searched data
    - When 'CategoryName' is chosen from DrownDown list and value of CategoryName is entered into the input:text, the ProductListComponent should show only those products od the CategoryName value, repeat the same for Manufacturers                    
+
+# Date: 04-March-2022
+
+1. Create a REST API that will perform for search operations of any of the following
+    - Product Search: Based on CategoryName OR Manufacturer and return searched Product as pagination of 10 products per search HTTP call.
+        - You are free to select number of records to be fetched from the server
+        - You can pass the value for number of records to be fetched from REST API from UI
+    - The searched result must be shown on Angular Component in HTML Table 
+        - The Component will access the Angular service that will contain following method
+            - searchProduct(criteria):Observable<Products[]>
+                - Criteria value will be as follows
+                    - criteria= 'CategoryName='Electronics''
+                    - criteria= 'Manufacturer='Bajaj''

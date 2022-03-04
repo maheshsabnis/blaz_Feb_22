@@ -1,0 +1,19 @@
+<h3>The HTTP Call from Angular Application
+  PostgreSQL-Express-Angular-Node
+</h3>
+
+<div class="container">
+  <div class="container">
+    <strong>{{message}}</strong>
+  </div>
+  <div class="btn-group-lg">
+    <input type="button" value="Get" class="btn btn-primary" (click)="getData()">
+    <input type="button" value="Post" class="btn btn-success" (click)="postData()">
+    <input type="button" value="Put" class="btn btn-warning" (click)="putData()">
+    <input type="button" value="Delete" class="btn btn-danger" (click)="deleteData()">
+  </div>
+  <hr>
+  <div class="container">
+    <strong>{{depts|json}}</strong>
+  </div>
+</div>

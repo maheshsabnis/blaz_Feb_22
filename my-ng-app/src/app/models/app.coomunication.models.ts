@@ -1,7 +1,7 @@
 export class Department {
   constructor(
     public DeptNo:number,
-    public DeptName: string
+    public DeptName: string,
   ){}
 }
 
@@ -34,3 +34,20 @@ export const Employees=[
   {EmpNo:111, EmpName: 'K', DeptNo:30},
   {EmpNo:112, EmpName: 'L', DeptNo:40}
 ];
+
+
+export class DepartmentForService {
+  constructor(
+    public deptno:number,
+    public deptname:string,
+    public location:string,
+    public capacity:number
+  ){}
+}
+
+export class ResponseData {
+  constructor(
+    public message:string,
+    public data:any
+  ){}
+}
