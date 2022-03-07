@@ -51,3 +51,19 @@ export class ResponseData {
     public data:any
   ){}
 }
+
+export class SecureResponseData {
+  constructor(
+    public message:string,
+    public token:string,
+    public records:any[]
+  ){}
+}
+
+export class User{
+  constructor(
+    public uerid:number,
+    public username:string,
+    public password:string
+  ){}
+}

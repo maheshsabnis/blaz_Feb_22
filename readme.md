@@ -459,5 +459,39 @@ runtime.js            | runtime       |   1.25 kB |               676 bytes
         - Http Calls
     - Routing
         -  Single Page app
+        - @angular/router
+            - RouterModule
+                - Platform for Containing Route Table
+                - Contains following Objects 
+                    - Routes: A Route Table where each entry is an instance of Route object
+                    - Route: A Route expression that contains metadata of the Route Information like
+                        - path: URL to navigate to
+                        - component: The component to be loaded after navigation
+                        - redirectTo: The default navigation when no URL matches
+                        - children: An array of 'Route' for Child or Sub-Routing
+                        - loadChildren: Lazy-Loading of Modules and ite components (on-Demand)
+                        - canActivate: Activate a Route based on Security used in case of Guarded Route
+                    - Router
+                        - A Class that is used to define explicit Routing using 'navigate()' method
+                        - This class in injected into the component which is used in routing
+                    - ActivatedRoute
+                        - A Class used to perform Parameterized Routing
+                        - This class is injected in component which want to read the Route parameter
+                    - [routerLink]: An attribute directive, applied on 'a' an anchor tag which is used to navigation across components
+                        - This queries to the Route table and look for the component to navigate to 
+``` html
+    <a [routerLink]="['path-of-the-route-expression-from-route-table']"/>
+```              
+
+``` html
+    <router-outlet></router-outlet>
+```
+        - the component directive, in which the navigated component will be rendered
+
+        - RouterModule methods
+            - RouterModule.forRoot(ROUTE-TABLE)
+                - Registers the Route table at the root level of the application or module 
+            - RouterModule.forChild(ROUTE-TABLE)
+                - Used for Child Level Routing in Lazy-Loading    
     - Testing
         - testing Component with UI Events

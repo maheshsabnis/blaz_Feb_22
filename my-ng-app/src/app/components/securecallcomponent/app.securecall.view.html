@@ -1,0 +1,13 @@
+<div class="container">
+  <input type="button" value="Create New User" (click)="registerNewUser()">
+  <br>
+  <input type="button" value="Auth User" (click)="loginUser()">
+  <br>
+  <input type="button" value="Get Data" (click)="getData()">
+  <br>
+
+  <hr>
+  <strong>
+    {{responseData|json}}
+  </strong>
+</div>
