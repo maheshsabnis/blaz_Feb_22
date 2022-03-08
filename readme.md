@@ -470,6 +470,8 @@ runtime.js            | runtime       |   1.25 kB |               676 bytes
                         - redirectTo: The default navigation when no URL matches
                         - children: An array of 'Route' for Child or Sub-Routing
                         - loadChildren: Lazy-Loading of Modules and ite components (on-Demand)
+                            - Load the module when there is a request for module loading in the Route
+                                - {path:'', loadchildrec:()=>import('MODULE-FILE-PATH').then(m=>m.MODULENAME)}  
                         - canActivate: Activate a Route based on Security used in case of Guarded Route
                     - Router
                         - A Class that is used to define explicit Routing using 'navigate()' method

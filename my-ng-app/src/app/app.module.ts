@@ -43,6 +43,6 @@ import { ContactComponent } from './routingapp/app.contact.component';
     AppRoutingModule // Load the Routing at the root of the application
   ],
   // providers: [UtilityService], // root as singleton
-  bootstrap: [MainRoutingComponent]
+  bootstrap: [ProductComponent]
 })
 export class AppModule { }

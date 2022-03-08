@@ -17,6 +17,9 @@ import { Component, OnInit } from '@angular/core';
             <td>
                <a [routerLink]="['contact']">Contact</a>
             </td>
+            <td>
+               <a [routerLink]="['lazy']">Lazy Load</a>
+            </td>
           </tr>
         </tbody>
       </table>

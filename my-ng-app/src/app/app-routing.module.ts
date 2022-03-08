@@ -12,6 +12,8 @@ const routes: Routes = [
     path:'httpserv', component:HttpServiceComponent
   }]},
   {path: 'about/:id', component: AboutComponent}, // parameterized routing
+  {path:'lazy', loadChildren:()=>import('./../lib/app.lazy.module')
+              .then(m=>m.LazyModule)}, // lazy loading of the Module
   {path: '**', redirectTo:'/'} // if no match found in URL navigate to default (HomeComponent)
 ];
 

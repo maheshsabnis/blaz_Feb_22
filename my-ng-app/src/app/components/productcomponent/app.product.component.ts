@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit, OnChanges {
   columnHeaders:Array<string>;
   color:string;
 
+  tax:number;
+
   // Copy the Values from the constants into the local public data members of the component
   categories = Categories;
   manufacturers = Manufacturers;
@@ -25,6 +27,7 @@ export class ProductComponent implements OnInit, OnChanges {
     this.logic = new ProductLogic();
     this.columnHeaders = new Array<string>();
     this.color ="";
+    this.tax = 0;
     console.log('Invoked Constructor');
   }
 
@@ -45,6 +48,7 @@ export class ProductComponent implements OnInit, OnChanges {
     this.product = new Product(0,'','','','','',0);
   }
   save():void {
+    this.tax = this.product.BasePrice * 0.02;
     this.products = this.logic.addProduct(this.product);
   }
   getselectedproduct(prd:Product):void {
